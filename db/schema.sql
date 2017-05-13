@@ -1,0 +1,2 @@
+CREAT DATABASE JawsDB;
+use JawsDB;

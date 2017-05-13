@@ -1,0 +1,119 @@
+<nav class="white" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo">EAT-DA-BURGER</a>
+   <!-- <ul class="right hide-on-med-and-down">
+      <li><a href="#">Navbar Link</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="#">Navbar Link</a></li>
+    </ul> -->
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+  </div>
+</nav>
+
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+        
+      <br><br>
+    </div>
+  </div>
+  <div class="parallax" style="background-color: #FDA93D;">
+    <center><iframe src="https://giphy.com/embed/l4Ki5FgQxmVUfkOvC" width="343" height="480" frameBorder="0" class="giphy-embed" style="position: relative; bottom: 58px;" allowFullScreen></iframe></center>
+   </div>
+</div>
+
+
+<div class="container" style="margin-top:100px;">
+    <div class="section">
+        
+
+
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <span class="card-title" style="color: #333;">Burgers</span>
+                    </div>
+                    <div class="card-content">
+                        <!--/if burger has not been devoured-->
+                        <ul>
+                            {{#each burgers}} 
+                            {{#unless this.devoured}} 
+                            <li>
+                                {{this.burger_name}}
+                                <form action="burgers/update/devour/{{this.id}}?_method=PUT" method="POST">
+                                    <input type="text" name="customer" placeholder="Customer">
+                                    <input type="hidden" name="devour" value="true">
+                                    <button type="submit"> Devour</button>
+                                </form>
+                            </li>
+                            {{/unless}} 
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <span class="card-title" style="color: #333;">Add a Burger</span>
+                    </div>
+                    <form class="create-update-form" action="burgers/create" method="POST">
+
+                        <div class="card-content">
+                            <p class="light">
+
+
+                                    <div class="form-group">
+                                        <label for="burger_name_input">Burger Name:</label>
+                                        <input type="text" id="burger_name_input" name="burger_name_input">
+                                    </div>
+
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn waves-effect waves-light" type="submit">Add Burger
+                                <i class="material-icons right">add</i>
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+
+            <div class="col s12 m4">
+                <div class="card">
+                    <div class="card-image">
+                        <span class="card-title" style="color: #333;">Burgers Devoured</span>
+                    </div>
+                    <div class="card-content">
+                        <!--/If burger has been devoured-->
+                        <ul>
+                            {{#each burgers}} 
+                                {{#if this.devoured}} 
+                                    <li>
+                                        {{this.burger_name}} (devoured by {{this.Customer.customer_name}})
+                                    </li>
+                                {{/if}} 
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div><!--/section-->
+</div><!--/container-->
+
+
