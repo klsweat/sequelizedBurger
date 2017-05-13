@@ -1,33 +1,36 @@
 <nav class="white" role="navigation">
-  <div class="nav-wrapper container">
-    <a id="logo-container" href="#" class="brand-logo">EAT-DA-BURGER</a>
-   <!-- <ul class="right hide-on-med-and-down">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">EAT-DA-BURGER</a>
+        <!-- <ul class="right hide-on-med-and-down">
       <li><a href="#">Navbar Link</a></li>
     </ul>
 
     <ul id="nav-mobile" class="side-nav">
       <li><a href="#">Navbar Link</a></li>
     </ul> -->
-    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-  </div>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
 </nav>
 
 <div id="index-banner" class="parallax-container">
-  <div class="section no-pad-bot">
-    <div class="container">
-        
-      <br><br>
+    <div class="section no-pad-bot">
+        <div class="container">
+
+            <br><br>
+        </div>
     </div>
-  </div>
-  <div class="parallax" style="background-color: #FDA93D;">
-    <center><iframe src="https://giphy.com/embed/l4Ki5FgQxmVUfkOvC" width="343" height="480" frameBorder="0" class="giphy-embed" style="position: relative; bottom: 58px;" allowFullScreen></iframe></center>
-   </div>
+    <div class="parallax" style="background-color: #FDA93D;">
+        <center>
+            <iframe src="https://giphy.com/embed/l4Ki5FgQxmVUfkOvC" width="343" height="480" frameBorder="0" class="giphy-embed"
+                style="position: relative; bottom: 58px;" allowFullScreen></iframe>
+        </center>
+    </div>
 </div>
 
 
 <div class="container" style="margin-top:100px;">
     <div class="section">
-        
+
 
 
         <div class="row">
@@ -39,8 +42,7 @@
                     <div class="card-content">
                         <!--/if burger has not been devoured-->
                         <ul>
-                            {{#each burgers}} 
-                            {{#unless this.devoured}} 
+                            {{#each burgers}} {{#unless this.devoured}}
                             <li>
                                 {{this.burger_name}}
                                 <form action="burgers/update/devour/{{this.id}}?_method=PUT" method="POST">
@@ -49,6 +51,8 @@
                                     <button type="submit"> Devour</button>
                                 </form>
                             </li>
+                            <br>
+
                             {{/unless}} 
                             {{/each}}
                         </ul>
@@ -70,10 +74,10 @@
                             <p class="light">
 
 
-                                    <div class="form-group">
-                                        <label for="burger_name_input">Burger Name:</label>
-                                        <input type="text" id="burger_name_input" name="burger_name_input">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="burger_name_input">Burger Name:</label>
+                                    <input type="text" id="burger_name_input" name="burger_name_input">
+                                </div>
 
                             </p>
                         </div>
@@ -96,24 +100,23 @@
                     <div class="card-content">
                         <!--/If burger has been devoured-->
                         <ul>
-                            {{#each burgers}} 
-                                {{#if this.devoured}} 
-                                    <li>
-                                        {{this.burger_name}} (devoured by {{this.Customer.customer_name}})
-                                    </li>
-                                {{/if}} 
+                            {{#each burgers}} {{#if this.devoured}}
+                            <li>
+                               {{this.Customer.customer_name}} : devoured the {{this.burger_name}} 
+                            </li>
+                            <br>
+                            {{/if}} 
                             {{/each}}
                         </ul>
                     </div>
                     <div class="card-action">
-                        <a href="#">This is a link</a>
                     </div>
                 </div>
             </div>
         </div>
 
 
-    </div><!--/section-->
-</div><!--/container-->
-
-
+    </div>
+    <!--/section-->
+</div>
+<!--/container-->
